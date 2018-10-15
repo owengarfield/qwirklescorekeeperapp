@@ -10,7 +10,7 @@ import UIKit
 
 var roundNum = 1
 
-var turnNum = 0
+var turnNum = 1
 
 var scoreArray = [Array<Any>]()
 
@@ -45,12 +45,13 @@ class PointsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             //Only use picker for the first round!
             
             let currentPlayerIndex : Int = playerPicker.selectedRow(inComponent: 0)
-        
+           playerPicker.selectRow(0, inComponent: 0, animated: false)
             firstRoundArray.append(currentPlayerIndex)
+            scoreArray.append([roundNum,currentPlayerIndex,pointsStepper.value])
         } else {
             
             let currentPlayerIndex : Int = firstRoundArray[turnNum]
-            
+            scoreArray.append([roundNum,currentPlayerIndex,pointsStepper.value])
         }
         //What happens when the user submits points
         
@@ -63,13 +64,14 @@ class PointsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }else{
             
             print("End of round \(roundNum) and onto round \(roundNum + 1)")
+            print(scoreArray)
             roundNum += 1
             turnNum = 0
 
         }
         
     
-//        scoreArray.append([roundNum,currentPlayerIndex,pointsStepper.value])
+      
 //        let debugStatement = "In round \(roundNum), \(playerArray[currentPlayerIndex]) scored \(pointsStepper.value) points"
 //        print(debugStatement)
         print(playerArray)
@@ -136,7 +138,7 @@ class PointsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             
             //Adjust the label to show which player's next
-            whoGoesLabel.text = "Who is player " + String(turnNum + 1) + "?"
+            whoGoesLabel.text = "Who is player " + String(turnNum) + "?"
             
             
         }

@@ -16,9 +16,10 @@ class ViewController: UIViewController {
         numberOfPlayers.text = String(playerCount)
         print(String(playerCount) + " players")
     }
+    @IBOutlet weak var numberOfPlayers: UILabel!
     
     @IBOutlet weak var playerStepper: UIStepper!
-    @IBOutlet weak var numberOfPlayers: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a ni
