@@ -7,9 +7,12 @@
 //
 
 
-class player: NSObject {
-
-    var name : String
-    var 
+class Player {
+    var name: String = "Anonymous"
+    var score: Int = 0
     
+    init(name: String, score: Int) {
+        self.name = name
+        self.score = score
+    }
 }

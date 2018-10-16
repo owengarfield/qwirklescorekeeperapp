@@ -9,30 +9,25 @@
 import UIKit
 
 var roundNum = 1
-
 var turnNum = 1
-
-var scoreArray = [Array<Any>]()
-
+var scoreArray = [[Int]]()
 var firstRoundArray = [Int]()
-
+var currentPlayerIndex : Int = 0
 class PointsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var roundLabel: UILabel!
-    
     @IBOutlet weak var pointsScored: UILabel!
-    
     @IBOutlet weak var pointsStepper: UIStepper!
-    
     @IBOutlet weak var whoGoesLabel: UILabel!
     
+    //Increase points value
+    
     @IBAction func pointStepperChange(_ sender: Any) {
-        
         pointsScored.text = String(Int(pointsStepper.value))
-        
     }
+    
+    //Increase by 12
     @IBAction func qwirkleScored(_ sender: UIButton) {
-        
         pointsStepper.value += 12
         pointsScored.text = String(Int(pointsStepper.value))
     }
@@ -41,19 +36,19 @@ class PointsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func addPointsPressed(_ sender: UIButton) {
         
         if roundNum == 1 {
-        
-            //Only use picker for the first round!
             
-            let currentPlayerIndex : Int = playerPicker.selectedRow(inComponent: 0)
-           playerPicker.selectRow(0, inComponent: 0, animated: false)
+            currentPlayerIndex = playerPicker.selectedRow(inComponent: 0)
+            
             firstRoundArray.append(currentPlayerIndex)
-            scoreArray.append([roundNum,currentPlayerIndex,pointsStepper.value])
+            
         } else {
             
-            let currentPlayerIndex : Int = firstRoundArray[turnNum]
-            scoreArray.append([roundNum,currentPlayerIndex,pointsStepper.value])
+             currentPlayerIndex = firstRoundArray[turnNum-1]
+            
         }
-        //What happens when the user submits points
+       
+        scoreArray.append([roundNum,currentPlayerIndex,Int(pointsStepper.value)])
+       
         
         //Use conditional to determine if it's a new round or not
         if turnNum < playerCount {
@@ -63,10 +58,14 @@ class PointsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
         }else{
             
-            print("End of round \(roundNum) and onto round \(roundNum + 1)")
-            print(scoreArray)
+            
+            if roundNum == 1 {
+                
+                playerPicker.removeFromSuperview()
+                
+            }
             roundNum += 1
-            turnNum = 0
+            turnNum = 1
 
         }
         
@@ -74,9 +73,7 @@ class PointsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
       
 //        let debugStatement = "In round \(roundNum), \(playerArray[currentPlayerIndex]) scored \(pointsStepper.value) points"
 //        print(debugStatement)
-        print(playerArray)
-        print(firstRoundArray)
-        print(scoreArray)
+      
         resetUI()
     }
     
@@ -116,23 +113,27 @@ class PointsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func resetUI(){
         
+        print("Round \(roundNum)")
+        print("Turn \(roundNum)")
+        print(scoreArray)
+            
+        
+        
         //Reset points stepper
         pointsStepper.value = 0
-        
-        
         
         //Show which round it is
         roundLabel.text = "ROUND " + String(roundNum)
         
         //Reset points label
-        pointsScored.text = String(pointsStepper.value)
+        pointsScored.text = String(Int(pointsStepper.value))
         
         if roundNum > 1 {
-            
+        
             //Show whose turn it is
-            let personWhoseGoItIs = playerArray[firstRoundArray[turnNum]]
-            whoGoesLabel.text = "It's \(personWhoseGoItIs)'s go!"
-            playerPicker.removeFromSuperview()
+            let personWhoseGoItIs = playerArray[firstRoundArray[turnNum-1]]
+            whoGoesLabel.text = "\(personWhoseGoItIs) it's your go!"
+            
             
         } else {
             

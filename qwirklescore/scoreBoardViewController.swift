@@ -8,18 +8,31 @@
 
 import UIKit
 
-class scoreBoardViewController: UITableViewController {
+class scoreBoardViewController: UITableViewController, UITabBarDelegate {
+    @IBOutlet var scoreBoard: UITableView!
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return roundNum - 1
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return turnNum
+        return playerCount + 1
     }
     
    override  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
     
-        cell.textLabel?.text = String(indexPath.row)
-    
+    if indexPath.row == 0 {
+        
+        cell.textLabel?.text = "Round " + String(indexPath.section + 1)
+    } else {
+        
+        let playerName = playerArray[firstRoundArray[indexPath.row-1]]
+        let scoreThisRound = scoreArray[(indexPath.section * playerCount) + (indexPath.row - 1)][2]
+        cell.textLabel?.text = "\(playerName) scored - \(scoreThisRound)"
+        
+    }
         return cell
     }
     
@@ -40,6 +53,8 @@ class scoreBoardViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+    override func viewDidAppear(_ animated: Bool) {
+        scoreBoard.reloadData()
+    }
 
 }

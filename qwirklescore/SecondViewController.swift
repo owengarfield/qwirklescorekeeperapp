@@ -18,11 +18,14 @@ class SecondViewController: UIViewController {
     @IBAction func addPlayerPressed(_ sender: UIButton) {
         
         //Check for text in the textbox
-        if playerNameText.text != nil && playerArray.count < playerCount {
+       
+        
+        if playerNameText.text != nil  {
             
         //Add player to array
         playerArray.append(playerNameText.text!)
-        
+           
+            
         //Tally up how many have been named
         playersNamed += 1
             
@@ -32,12 +35,15 @@ class SecondViewController: UIViewController {
         //Log for debug
         print("\(playersNamed) out of \(playerCount) have been named")
         print(playerArray)
-        
+            
+           
         } else {
             
                   addPlayerButton.isEnabled = false
-            startGameButton.isEnabled = true
+            
         }
+        
+       updateUI()
         
     }
     @IBOutlet weak var playerNameText: UITextField!
@@ -50,7 +56,13 @@ class SecondViewController: UIViewController {
     
     func updateUI() {
         
-        
+        if playerArray.count == playerCount {
+            
+            startGameButton.isEnabled = true
+            addPlayerButton.isEnabled = false
+            playerNameText.isEnabled = false
+            
+        }
         
     }
     
