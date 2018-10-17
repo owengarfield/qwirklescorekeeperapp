@@ -13,6 +13,27 @@ var turnNum = 1
 var scoreArray = [[Int]]()
 var firstRoundArray = [Int]()
 var currentPlayerIndex : Int = 0
+var totalArray : [[Int]] = []
+
+func getTotals(){
+    
+    for scores in scoreArray {
+        
+        var runningTotal = 0
+        
+        for players in playerArray {
+            
+            runningTotal = runningTotal + scores[2]
+            let personsScoreArray = [players,runningTotal] as! [Int]
+            totalArray.append(personsScoreArray)
+            
+        }
+        
+    }
+    
+    print(totalArray)
+}
+
 class PointsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var roundLabel: UILabel!
@@ -117,7 +138,7 @@ class PointsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         print("Turn \(roundNum)")
         print(scoreArray)
             
-        
+        getTotals()
         
         //Reset points stepper
         pointsStepper.value = 0
