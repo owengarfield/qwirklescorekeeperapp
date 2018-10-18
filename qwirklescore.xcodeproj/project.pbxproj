@@ -45,6 +45,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C45952A52178EEAD00944818 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4C754722174ABAF003695A9 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C45952A62178EF8C00944818 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4C754862174EF56003695A9 /* Score.swift */,
+				C4C754882174F2F7003695A9 /* Player.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C4C754622174ABAF003695A9 = {
 			isa = PBXGroup;
 			children = (
@@ -68,9 +85,8 @@
 				C4C754702174ABAF003695A9 /* ViewController.swift */,
 				C4C754802174ADA2003695A9 /* SecondViewController.swift */,
 				C4C754822174B5F5003695A9 /* PointsViewController.swift */,
-				C4C754722174ABAF003695A9 /* Main.storyboard */,
-				C4C754862174EF56003695A9 /* Score.swift */,
-				C4C754882174F2F7003695A9 /* Player.swift */,
+				C45952A52178EEAD00944818 /* View */,
+				C45952A62178EF8C00944818 /* Model */,
 				C4C754842174D798003695A9 /* scoreBoardViewController.swift */,
 				C4C754752174ABB1003695A9 /* Assets.xcassets */,
 				C4C754772174ABB1003695A9 /* LaunchScreen.storyboard */,

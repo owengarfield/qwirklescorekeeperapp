@@ -9,58 +9,55 @@
 import UIKit
 
 var playerArray = [String]()
-var playersNamed = 0
+var playerCount = 0
 
 class SecondViewController: UIViewController {
 
-    @IBOutlet weak var addPlayerButton: UIButton!
-    @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var playerNameText: UITextField!
+ @IBOutlet weak var beginButton: UIButton!
     @IBAction func addPlayerPressed(_ sender: UIButton) {
         
         //Check for text in the textbox
-       
         
         if playerNameText.text != nil  {
+            
+         let player = Player()
+            player.name = playerNameText.text!
+            
+            
             
         //Add player to array
         playerArray.append(playerNameText.text!)
            
             
         //Tally up how many have been named
-        playersNamed += 1
+        playerCount += 1
             
         //Reset the textfield
         playerNameText.text = ""
             
         //Log for debug
-        print("\(playersNamed) out of \(playerCount) have been named")
-        print(playerArray)
             
            
-        } else {
-            
-                  addPlayerButton.isEnabled = false
-            
         }
         
        updateUI()
         
     }
-    @IBOutlet weak var playerNameText: UITextField!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a ni
-        startGameButton.isEnabled = false
+        beginButton.isEnabled = false
     }
     
     func updateUI() {
         
-        if playerArray.count == playerCount {
+        if playerCount > 1 {
             
-            startGameButton.isEnabled = true
-            addPlayerButton.isEnabled = false
-            playerNameText.isEnabled = false
+            beginButton.isEnabled = true
             
         }
         

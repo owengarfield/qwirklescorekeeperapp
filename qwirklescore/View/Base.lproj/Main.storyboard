@@ -17,53 +17,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NEW GAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L79-Jm-avi">
-                                <rect key="frame" x="98" y="73" width="178" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYw-Fx-Xtl">
-                                <rect key="frame" x="113" y="367" width="149" height="99"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brown-bg" translatesAutoresizingMaskIntoConstraints="NO" id="mUG-Vh-gfK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h7-ZZ-IDk">
+                                <rect key="frame" x="87" y="233" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="START"/>
+                                <size key="titleShadowOffset" width="8" height="8"/>
+                                <state key="normal" title="NEW GAME"/>
                                 <connections>
-                                    <segue destination="L8m-sM-ed0" kind="show" id="URF-z0-nUx"/>
+                                    <segue destination="L8m-sM-ed0" kind="show" id="wwA-Cm-dvs"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLAYERS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXf-ep-Fjq">
-                                <rect key="frame" x="153" y="262" width="68" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stepper contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-uv-wL2">
-                                <rect key="frame" x="140" y="290" width="94" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="playerStepperChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="t7I-FW-l33"/>
-                                </connections>
-                            </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLB-au-T8Y">
-                                <rect key="frame" x="173" y="200" width="29" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mUG-Vh-gfK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="34Y-2J-R33"/>
+                            <constraint firstItem="mUG-Vh-gfK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4YW-hp-GEU"/>
+                            <constraint firstItem="mUG-Vh-gfK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="J5C-vB-Rg0"/>
+                            <constraint firstItem="mUG-Vh-gfK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ftJ-Di-N6n"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Qwirkle Scorekeeper" id="NOC-8Y-d6A"/>
-                    <connections>
-                        <outlet property="numberOfPlayers" destination="dLB-au-T8Y" id="2jb-Lh-7E9"/>
-                        <outlet property="playerStepper" destination="KfL-uv-wL2" id="N7T-pj-HBp"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,37 +55,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QJL-QI-9Z0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brown-bg" translatesAutoresizingMaskIntoConstraints="NO" id="uQ4-up-yS6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="QJL-QI-9Z0">
                                 <rect key="frame" x="79" y="180" width="216" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvV-w3-bP9">
-                                <rect key="frame" x="164" y="233" width="46" height="30"/>
+                                <rect key="frame" x="150" y="233" width="74" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Add Player"/>
                                 <connections>
-                                    <action selector="addPlayerPressed:" destination="L8m-sM-ed0" eventType="touchUpInside" id="bHx-g9-nqV"/>
+                                    <action selector="addPlayerPressed:" destination="L8m-sM-ed0" eventType="touchUpInside" id="xi5-CQ-0If"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JpX-uw-xkK">
-                                <rect key="frame" x="164" y="299" width="46" height="37"/>
+                                <rect key="frame" x="138" y="271" width="99" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="kY6-yb-j0d" kind="show" id="p9z-ML-5tu"/>
-                                </connections>
+                                <state key="normal" title="BEGIN"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uQ4-up-yS6" firstAttribute="top" secondItem="IDT-g7-wfe" secondAttribute="top" id="0Hz-0u-2cf"/>
+                            <constraint firstItem="uQ4-up-yS6" firstAttribute="bottom" secondItem="mhR-Ag-4wN" secondAttribute="bottom" id="1Pk-od-xXQ"/>
+                            <constraint firstItem="uQ4-up-yS6" firstAttribute="trailing" secondItem="mhR-Ag-4wN" secondAttribute="trailing" id="Gij-yv-pKm"/>
+                            <constraint firstItem="uQ4-up-yS6" firstAttribute="leading" secondItem="mhR-Ag-4wN" secondAttribute="leading" id="ofo-l6-kHb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mhR-Ag-4wN"/>
                     </view>
                     <connections>
-                        <outlet property="addPlayerButton" destination="JvV-w3-bP9" id="2ID-Vl-k88"/>
+                        <outlet property="beginButton" destination="JpX-uw-xkK" id="quw-9U-Q6P"/>
                         <outlet property="playerNameText" destination="QJL-QI-9Z0" id="oyj-Mm-2o9"/>
-                        <outlet property="startGameButton" destination="JpX-uw-xkK" id="nDN-M2-PNK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ux7-tN-c5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -243,4 +226,7 @@
             <point key="canvasLocation" x="1900" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="brown-bg" width="521" height="992"/>
+    </resources>
 </document>

@@ -7,24 +7,17 @@
 //
 
 import UIKit
-var playerCount = 2
+
 class ViewController: UIViewController {
-    @IBAction func playerStepperChange(_ sender: UIStepper) {
-        
-        
-        playerCount = Int(sender.value)
-        numberOfPlayers.text = String(playerCount)
-        print(String(playerCount) + " players")
-    }
-    @IBOutlet weak var numberOfPlayers: UILabel!
     
-    @IBOutlet weak var playerStepper: UIStepper!
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a ni
         
-        numberOfPlayers.text = String(playerStepper.value)
+       
         
     }
 
